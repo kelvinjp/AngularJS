@@ -1,0 +1,41 @@
+
+<div ng-init="init()">
+    <h3>
+        Apertura
+    </h3>
+    <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+    <h3>
+        Cierre
+    </h3>
+    <timepicker ng-model="mytime2" ng-change="changed()" hour-step="hstep2" minute-step="mstep2" show-meridian="ismeridian"></timepicker>
+
+
+
+
+
+    <button class="btn btn-primary" ng-click="update()">Guardar Horario</button>
+
+
+
+    <h3>
+        Configurar controles
+    </h3>
+    <div class="row">
+        <div class="col-xs-6">
+            Cambio de horas a la vez:
+            <select class="form-control" ng-model="hstep" ng-options="opt for opt in options.hstep"></select>
+        </div>
+        <div class="col-xs-6">
+            Cambio de minutos a la vez:
+            <select class="form-control" ng-model="mstep" ng-options="opt for opt in options.mstep"></select>
+        </div>
+    </div>
+
+    <hr>
+
+    <button class="btn btn-info" ng-click="toggleMode()">12H / 24H</button>
+
+
+
+</div>
+

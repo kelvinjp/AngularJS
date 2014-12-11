@@ -1,0 +1,15 @@
+{
+  "name": "chalk",
+  "homepage": "https://github.com/sindresorhus/chalk",
+  "version": "0.5.1",
+  "_release": "0.5.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.1",
+    "commit": "a5f137f221ca5417d0e142173cb51dfeb460d94a"
+  },
+  "_source": "git://github.com/sindresorhus/chalk.git",
+  "_target": "~0.5.1",
+  "_originalSource": "chalk",
+  "_direct": true
+}

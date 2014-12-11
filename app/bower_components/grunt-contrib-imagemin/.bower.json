@@ -1,0 +1,15 @@
+{
+  "name": "grunt-contrib-imagemin",
+  "homepage": "https://github.com/gruntjs/grunt-contrib-imagemin",
+  "version": "0.8.1",
+  "_release": "0.8.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.8.1",
+    "commit": "8b4088c4390a7cd592fdf5964a0a9f241d453909"
+  },
+  "_source": "git://github.com/gruntjs/grunt-contrib-imagemin.git",
+  "_target": "~0.8.1",
+  "_originalSource": "grunt-contrib-imagemin",
+  "_direct": true
+}

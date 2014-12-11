@@ -1,0 +1,60 @@
+<div ng-controller="EditablerowCtrl">
+    <table class="table table-striped table-hover table-condensed">
+
+        <tr style="font-weight: bold">
+            <th style="width: 25%">
+                <a href="" ng-click="ordenarPor('nombre')">
+                    Nombre
+                </a>
+            </th>
+            <th style="width: 25%">Descripcion</th>
+            <th style="width: 10%">Precio</th>
+            <th style="width: 20%">Tipo</th>
+            <th style="width: 20%">Editar</th>
+        </tr>
+
+        <tr ng-repeat="tarea in tareas | orderBy:ordenSeleccionado | filter:buscar">
+            <td ng-if="tarea.precio != 0.8" ><span editable-text="tarea.nombre" e-name="nombre" e-form="rowform" onbeforesave="checkName($data,tarea.id)" e-required>
+              {{ tarea.nombre || 'empty' }}
+            </span>
+            </td>
+            <td ng-if="tarea.precio != 0.8" >
+                <span editable-text="tarea.descripcion" e-name="descripcion" e-form="rowform"  e-required>
+              {{ tarea.descripcion || 'empty' }}
+            </span>
+            </td>
+            <td ng-if="tarea.precio != 0.8">
+                <span editable-text="tarea.precio" e-name="precio" e-form="rowform"  e-required>
+                {{ formatter.format(tarea.precio) || 'empty' }}
+            </span>
+            </td>
+            <td ng-if="tarea.precio != 0.8">
+                <span editable-select="tarea.tipo" e-name="tipo" e-form="rowform" e-ng-options="s.value as s.text for s in statuses">
+                    {{ showStatus(tarea) }}
+                </span>
+            </td>
+            <td ng-if="tarea.precio != 0.8" style="white-space: nowrap">
+                <!-- form -->
+                <form editable-form name="rowform" onbeforesave="saveUser($data, tarea.id)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == tarea">
+                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                        Guardar
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                        cancelar
+                    </button>
+                </form>
+                <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                    <button class="btn btn-danger" ng-click="removeUser(tarea.id)">eliminar</button>
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <button class="btn btn-default" ng-click="addUser()">Agregar elemento al menu</button>
+
+  <br><br>
+
+</div>

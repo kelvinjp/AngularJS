@@ -1,0 +1,50 @@
+<div ng-controller="tiposdecomidas">
+
+  <div class="panel panel-primary" width="40%">
+    <div class="panel-heading">Tipos de comida</div>
+    <div class="panel-body">
+
+
+  <table class="table table-striped table-hover table-condensed" width="40%">
+
+        <tr style="font-weight: bold">
+
+            <th style="width: 25%">Nombre</th>
+          <th style="width: 25%" >Configurar</th>
+        </tr>
+
+        <tr ng-repeat="tarea in tareas | orderBy:ordenSeleccionado | filter:buscar">
+
+            <td>
+                <span editable-text="tarea.text" e-name="text" e-form="rowform"  e-required>
+              {{ tarea.text || 'empty' }}
+            </span>
+            </td>
+
+
+            <td style="white-space: nowrap">
+                <!-- form -->
+                <form editable-form name="rowform" onbeforesave="saveUser($data, tarea.value)" ng-show="rowform.$visible" class="form-buttons form-inline" shown="inserted == tarea">
+                    <button type="submit" ng-disabled="rowform.$waiting" class="btn btn-primary">
+                        Guardar
+                    </button>
+                    <button type="button" ng-disabled="rowform.$waiting" ng-click="rowform.$cancel()" class="btn btn-default">
+                        cancelar
+                    </button>
+                </form>
+                <div class="buttons" ng-show="!rowform.$visible">
+                    <button class="btn btn-primary" ng-click="rowform.$show()">edit</button>
+                    <button class="btn btn-danger" ng-click="removeUser(tarea.value)">eliminar</button>
+                </div>
+
+            </td>
+        </tr>
+
+    </table>
+
+    <button class="btn btn-default" ng-click="addUser()">Agregar elemento al menu</button>
+    </div>
+  </div>
+  <br><br>
+
+</div>

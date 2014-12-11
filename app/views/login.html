@@ -1,0 +1,16 @@
+<div class="container">
+
+    <form class="form-signin" role="form" ng-submit="iniciarSesion()">
+        <h2 class="form-signin-heading">{{'LOGIN'| translate}}</h2>
+        <input type="text" class="form-control" placeholder="usuario" required autofocus ng-model="usuario.txtuser">
+        <input type="password" class="form-control" placeholder="contraseña" required ng-model="usuario.txtpass">
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Recordar contraseña
+        </label>
+        <p class="bg-danger" style="font-weight: bold" ng-show="errormsj">Usuario/Contraseña incorrectas.</p>
+
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="{{'LOGIN'| translate}}">
+    </form>
+
+</div> <!-- /container -->
+
